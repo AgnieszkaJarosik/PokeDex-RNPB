@@ -14,7 +14,7 @@ import {
 import { fetchPokemonList } from './apiService';
 
 const App = () => {
-  const [data, setData] = useState()
+  const [data, setData] = useState([])
   const barStyle = Platform.OS === 'ios' ? 'default' : 'light-content';
 
   useEffect(()=>{
@@ -30,16 +30,17 @@ const App = () => {
       <SafeAreaView style={styles.appContainer}>
         <View style={styles.container}>
           {/* <Text style={styles.text}>Hello World</Text> */}
-          <FlatList 
-            data={data}
-            renderItem={({item, index, separator})=>{
-              <TouchableOpacity 
+          <FlatList  
+             data={data}
+             renderItem={({ item, index }) => (
+              <TouchableOpacity
                 style={styles.button}
-                onPress={()=>console.log(item)} key={Date.now()+index}>
+                onPress={()=>console.log(item)}
+                key={Date.now()+index} >
                 <Text style={styles.text}>{item.name}</Text>
-              </TouchableOpacity>
-            }}
-            />
+              </TouchableOpacity> 
+             )}
+           />
         </View>
       </SafeAreaView>
     </>
@@ -64,9 +65,9 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '8',
     borderBottomColor: 'black',
-
+    borderBottomWidth: 1,
+    padding: 8,
   }
 });
 
