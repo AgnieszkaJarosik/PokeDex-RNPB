@@ -1,22 +1,27 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, View} from 'react-native';
 
-const AnimatedBar = ({value}) => {
-  const width = useRef(new Animated.Value(0)).current;
-
-  const animate = () => {
-    Animated.timing(width, {
-      toValue: value,
-      useNativeDriver: true,
-    }).start();
-  };
+const AnimatedBar = ({value, index}) => {
+  const expand = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    animate();
-  }, [value]);
+    Animated.timing(expand, {
+      toValue: value,
+      useNativeDriver: false,
+      delay: index * 150,
+      duration: 1000,
+    }).start();
+  }, [expand]);
+
+  const interpolatedValue = expand.interpolate({
+    inputRange: [0,255],
+    outputRange: [0, 100],
+  });
 
    return(
-     <Animated.View style={[styles.bar, {width}]}></Animated.View>
+     <Animated.View
+       style={[styles.bar, {width: interpolatedValue}]}>
+     </Animated.View>
    )
 };
 

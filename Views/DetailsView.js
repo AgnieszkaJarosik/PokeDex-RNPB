@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, Image, ActivityIndicator} from 'react-native';
+import {View, Text, Image, ActivityIndicator, Animated} from 'react-native';
 
 import {useAsyncStorage} from '../hooks/useAsyncStorage';
 import AnimatedBar from '../components/AnimatedBar';
@@ -25,7 +25,7 @@ const DetailsView = ({route}) => {
             <Text style={styles.statsText}>
               {item.stat.name.toUpperCase()}: {item.base_stat}
             </Text>
-            {/*<AnimatedBar value={item.base_stat}></AnimatedBar>*/}
+            <AnimatedBar value={item.base_stat} index={index}></AnimatedBar>
           </View>
         )
         )}
