@@ -27,8 +27,9 @@ const AnimatedBar = ({value, index}) => {
 
 const styles = {
   bar: {
-    backgroundColor: 'blue',
+    backgroundColor: 'rgb(53, 153, 253)',
     height: 8,
+    justifyContent: 'flex-start',
   },
 };
 

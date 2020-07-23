@@ -100,11 +100,9 @@ const HomeView = ({navigation}) => {
 
 const styles = StyleSheet.create({
   appContainer: {
-    backgroundColor: 'white',
     flex: 1,
   },
   container: {
-    backgroundColor: '#eee',
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,

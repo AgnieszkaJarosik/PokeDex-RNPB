@@ -12,7 +12,14 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const HomeStack = () => (
-  <Stack.Navigator>
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: 'rgba(53, 253, 203, 0.8)',
+        height: 60,
+      },
+      headerTintColor: '#fff',
+    }}>
     <Stack.Screen name="Home" component={HomeView} />
     <Stack.Screen name="Details" component={DetailsView} />
   </Stack.Navigator>
@@ -33,7 +40,15 @@ const App = () => {
             return <Image source={imageUrl} />;
           },
         })}
-        tabBarOptions={{activeTintColor:"red", inactiveTintColor: "gray"}}>
+        tabBarOptions={{
+          activeTintColor: 'white',
+          inactiveTintColor: 'gray',
+          style: {
+            backgroundColor: 'rgba(53, 253, 203, 0.8)',
+            height: 60,
+        },
+        }}
+      >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Berries" component={BerriesView} />
       </Tab.Navigator>
